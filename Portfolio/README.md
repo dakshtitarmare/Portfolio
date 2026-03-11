@@ -47,9 +47,9 @@ This portfolio website is designed to present my work as an AI Engineer, Web Dev
 
 ## Contact
 
-- Email: tanishbhavsar2007@gmail.com
-- GitHub: [Tanish-Dev](https://github.com/Tanish-Dev)
-- LinkedIn: [Daksh Titarmare](https://www.linkedin.com/in/tanish-bhavsar-a96354286/)
+- Email: devdakshtit@gmail.com
+- GitHub: [dakshtitarmare](https://github.com/dakshtitarmare)
+- LinkedIn: [Daksh Titarmare](https://www.linkedin.com/in/dakshtitarmare/)
 
 ## License
 

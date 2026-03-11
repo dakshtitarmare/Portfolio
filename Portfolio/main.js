@@ -335,7 +335,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Typewriter effect for credits
   const creditsElement = document.getElementById("creditsText");
-  const creditsText = "< Code by Tanish />";
+  const creditsText = "< Code by Daksh />";
   let index = 0;
   let isDeleting = false;
   let textInterval;
