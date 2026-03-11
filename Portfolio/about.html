@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Daksh Titarmare | Portfolio</title>
+    <!-- Favicon links -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="assets/favicon/site.webmanifest" />
+    <link rel="shortcut icon" href="assets/favicon/favicon.ico" />
+    <meta name="theme-color" content="#ffffff" />
+    <!-- End favicon links -->
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="taskbar__container">
+      <div class="taskbar">
+        <button
+          id="themeToggle"
+          class="theme-toggle"
+          aria-label="Toggle dark mode"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="theme-toggle-icon"
+          >
+            <path
+              d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+              class="moon-icon"
+            ></path>
+            <circle
+              cx="12"
+              cy="12"
+              r="5"
+              class="sun-icon-circle"
+              style="display: none"
+            ></circle>
+            <line
+              x1="12"
+              y1="1"
+              x2="12"
+              y2="3"
+              class="sun-icon-line"
+              style="display: none"
+            ></line>
+            <line
+              x1="12"
+              y1="21"
+              x2="12"
+              y2="23"
+              class="sun-icon-line"
+              style="display: none"
+            ></line>
+            <line
+              x1="4.22"
+              y1="4.22"
+              x2="5.64"
+              y2="5.64"
+              class="sun-icon-line"
+              style="display: none"
+            ></line>
+            <line
+              x1="18.36"
+              y1="18.36"
+              x2="19.78"
+              y2="19.78"
+              class="sun-icon-line"
+              style="display: none"
+            ></line>
+            <line
+              x1="1"
+              y1="12"
+              x2="3"
+              y2="12"
+              class="sun-icon-line"
+              style="display: none"
+            ></line>
+            <line
+              x1="21"
+              y1="12"
+              x2="23"
+              y2="12"
+              class="sun-icon-line"
+              style="display: none"
+            ></line>
+            <line
+              x1="4.22"
+              y1="19.78"
+              x2="5.64"
+              y2="18.36"
+              class="sun-icon-line"
+              style="display: none"
+            ></line>
+            <line
+              x1="18.36"
+              y1="5.64"
+              x2="19.78"
+              y2="4.22"
+              class="sun-icon-line"
+              style="display: none"
+            ></line>
+          </svg>
+        </button>
+        <a href="index.html#home" class="taskbar__item">Hey</a>
+        <a href="index.html#work" class="taskbar__item">Work</a>
+        <a href="index.html#story" class="taskbar__item">About</a>
+        <a href="index.html#contact" class="taskbar__item">Contact</a>
+      </div>
+
+      <!-- Hamburger Menu Button -->
+      <button class="hamburger-menu" aria-label="Open Menu">
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
+      </button>
+
+      <!-- Mobile Navigation Menu -->
+      <div class="mobile-menu">
+        <div class="mobile-menu-header">
+          <button
+            id="mobileDarkMode"
+            class="theme-toggle"
+            aria-label="Toggle dark mode"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="theme-toggle-icon"
+            >
+              <path
+                d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+                class="mobile-moon-icon"
+              ></path>
+              <circle
+                cx="12"
+                cy="12"
+                r="5"
+                class="mobile-sun-icon-circle"
+                style="display: none"
+              ></circle>
+              <line
+                x1="12"
+                y1="1"
+                x2="12"
+                y2="3"
+                class="mobile-sun-icon-line"
+                style="display: none"
+              ></line>
+              <line
+                x1="12"
+                y1="21"
+                x2="12"
+                y2="23"
+                class="mobile-sun-icon-line"
+                style="display: none"
+              ></line>
+              <line
+                x1="4.22"
+                y1="4.22"
+                x2="5.64"
+                y2="5.64"
+                class="mobile-sun-icon-line"
+                style="display: none"
+              ></line>
+              <line
+                x1="18.36"
+                y1="18.36"
+                x2="19.78"
+                y2="19.78"
+                class="mobile-sun-icon-line"
+                style="display: none"
+              ></line>
+              <line
+                x1="1"
+                y1="12"
+                x2="3"
+                y2="12"
+                class="mobile-sun-icon-line"
+                style="display: none"
+              ></line>
+              <line
+                x1="21"
+                y1="12"
+                x2="23"
+                y2="12"
+                class="mobile-sun-icon-line"
+                style="display: none"
+              ></line>
+              <line
+                x1="4.22"
+                y1="19.78"
+                x2="5.64"
+                y2="18.36"
+                class="mobile-sun-icon-line"
+                style="display: none"
+              ></line>
+              <line
+                x1="18.36"
+                y1="5.64"
+                x2="19.78"
+                y2="4.22"
+                class="mobile-sun-icon-line"
+                style="display: none"
+              ></line>
+            </svg>
+          </button>
+          <button class="close-menu" aria-label="Close Menu">&times;</button>
+        </div>
+        <div class="mobile-menu-items">
+          <a href="index.html#home" class="mobile-menu-item">Hey</a>
+          <a href="index.html#work" class="mobile-menu-item">Work</a>
+          <a href="index.html#story" class="mobile-menu-item">About</a>
+          <a href="index.html#contact" class="mobile-menu-item">Contact</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-page-container">
+      <div class="about-page-header reveal-section">
+        <h1>About Me</h1>
+        <a href="index.html" class="back-button">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M15 18l-6-6 6-6"></path>
+          </svg>
+          Back to Home
+        </a>
+      </div>
+
+      <div class="about-page-content">
+        <div class="profile-section reveal-section delay-100">
+          <div class="profile-image-large">
+            <img src="assets/my-image.png" alt="Daksh Titarmare" />
+          </div>
+
+          <div class="profile-details">
+            <h2>Daksh Titarmare</h2>
+            <p class="profile-title">
+              AI Engineer | Web Developer | Problem Solver
+            </p>
+
+            <div class="profile-links">
+              <a href="mailto:tanishbhavsar2007@gmail.com" class="profile-link">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  ></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                tanishbhavsar2007@gmail.com
+              </a>
+              <a
+                href="https://github.com/Tanish-Dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="profile-link"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                  ></path>
+                </svg>
+                GitHub
+              </a>
+              <a
+                href="https://www.linkedin.com/in/tanish-bhavsar-a96354286/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="profile-link"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                  ></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+                LinkedIn
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-sections">
+          <section class="about-section reveal-section delay-200">
+            <h2>My Journey</h2>
+            <div class="section-content">
+              <p>
+                My journey in technology began with a curiosity about how things
+                work and evolved into a passion for creating meaningful digital
+                experiences. I've always been fascinated by the intersection of
+                design and functionality, which led me to explore various
+                aspects of web development and artificial intelligence.
+              </p>
+              <p>
+                Starting with basic HTML and CSS, I quickly expanded my skills
+                to include JavaScript, React, and various backend technologies.
+                Alongside web development, my interest in AI grew as I saw its
+                potential to transform how we interact with technology.
+              </p>
+            </div>
+          </section>
+
+          <section class="about-section reveal-section delay-300">
+            <h2>Education & Growth</h2>
+            <div class="section-content">
+              <p>
+                I've pursued a combination of formal education and self-directed
+                learning to build my technical expertise:
+              </p>
+              <ul class="education-list">
+                <li>
+                  <span class="education-year">2023 - Present</span>
+                  <div class="education-details">
+                    <h3>Computer Science Engineering</h3>
+                    <p>
+                      Currently focusing on AI and machine learning
+                      specializations
+                    </p>
+                  </div>
+                </li>
+                <li>
+                  <span class="education-year">2022 - 2023</span>
+                  <div class="education-details">
+                    <h3>Web Development Certification</h3>
+                    <p>Comprehensive training in modern web technologies</p>
+                  </div>
+                </li>
+              </ul>
+              <p>
+                Beyond formal education, I'm committed to continuous learning
+                through online courses, tutorials, and hands-on projects. I
+                believe in the power of practical application to solidify
+                theoretical knowledge.
+              </p>
+            </div>
+          </section>
+
+          <section class="about-section reveal-section delay-400">
+            <h2>Technical Expertise</h2>
+            <div class="section-content">
+              <p>My technical skills span several domains:</p>
+
+              <div class="expertise-category">
+                <h3>Front-End Development</h3>
+                <ul class="expertise-list">
+                  <li>HTML5, CSS3, JavaScript (ES6+)</li>
+                  <li>React.js for building dynamic user interfaces</li>
+                  <li>Responsive design and cross-browser compatibility</li>
+                  <li>Tailwind CSS for modern styling solutions</li>
+                </ul>
+              </div>
+
+              <div class="expertise-category">
+                <h3>AI & Machine Learning</h3>
+                <ul class="expertise-list">
+                  <li>Python for data processing and model building</li>
+                  <li>TensorFlow for deep learning applications</li>
+                  <li>Computer vision and image processing</li>
+                  <li>Natural language processing</li>
+                </ul>
+              </div>
+
+              <div class="expertise-category">
+                <h3>Tools & Technologies</h3>
+                <ul class="expertise-list">
+                  <li>Version control with Git</li>
+                  <li>UI/UX design with Figma</li>
+                  <li>C/C++ for system-level programming</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section class="about-section reveal-section delay-600">
+            <h2>Beyond Coding</h2>
+            <div class="section-content">
+              <p>
+                While technology is my passion, I maintain a well-rounded life
+                outside of coding:
+              </p>
+              <ul class="interests-list">
+                <li>
+                  Love jamming and playing on my electric guitar, open for band
+                  opportunities
+                </li>
+                <li>
+                  Reading books on technology, philosophy, and science fiction
+                </li>
+                <li>
+                  Contributing to tech communities through mentorship and
+                  knowledge sharing
+                </li>
+                <li>AstroPhotography and design enthusiast</li>
+              </ul>
+              <p>
+                I find that these diverse interests often inspire my technical
+                work and help me approach problems from different perspectives.
+              </p>
+            </div>
+          </section>
+
+          <section class="about-section reveal-section delay-700">
+            <h2>Let's Connect</h2>
+            <div class="section-content">
+              <p>
+                I'm always open to discussing new projects, creative ideas, or
+                opportunities to be part of something special. Whether you have
+                a question or just want to say hi, feel free to reach out!
+              </p>
+              <div class="resume-download">
+                <a
+                  href="assets/Daksh Titarmare Resume.pdf"
+                  class="resume-button"
+                  download
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                  </svg>
+                  Download Resume
+                </a>
+                <a href="index.html#contact" class="contact-button">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                    ></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                  Contact Me
+                </a>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <footer class="custom-footer reveal-section">
+      <a class="email" href="mailto:tanishbhavsar2007@gmail.com"
+        >tanishbhavsar2007@gmail.com</a
+      >
+      <div class="social-icons">
+        <a href="#"
+          ><img src="assets/Screenshot 2025-04-07 at 1.26.39 AM.png" alt="X"
+        /></a>
+        <a href="#"
+          ><img
+            src="assets/Screenshot 2025-04-07 at 1.27.49 AM.png"
+            alt="Instagram"
+        /></a>
+        <a
+          href="https://github.com/Tanish-Dev"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><img
+            src="https://cdn-icons-png.flaticon.com/512/733/733553.png"
+            alt="GitHub"
+        /></a>
+        <a
+          href="https://www.linkedin.com/in/tanish-bhavsar-a96354286/"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><img
+            src="assets/Screenshot 2025-04-07 at 1.28.20 AM.png"
+            alt="LinkedIn"
+        /></a>
+      </div>
+    </footer>
+
+    <!-- Interactive Watermark/Credits -->
+    <div class="credits-container">
+      <div class="credits-wrapper">
+        <div class="credits-text" id="creditsText"></div>
+        <div class="credits-cursor"></div>
+      </div>
+      <div class="credits-effects">
+        <!-- Particles divs removed -->
+      </div>
+    </div>
+
+    <!-- Add reference to external JavaScript file -->
+    <script src="main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects | Daksh Titarmare Portfolio</title>
+    <!-- Favicon links -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="assets/favicon/site.webmanifest" />
+    <link rel="shortcut icon" href="assets/favicon/favicon.ico" />
+    <meta name="theme-color" content="#ffffff" />
+    <!-- End favicon links -->
+    <link rel="stylesheet" href="index.css" />
+    <!-- Additional CSS for the projects page -->
+    <style>
+      /* Project Page Specific Styles */
+      .projects-page-container {
+        max-width: 1200px;
+        margin: 100px auto 50px;
+        padding: 0 20px;
+      }
+
+      .projects-page-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 50px;
+      }
+
+      .projects-page-header h1 {
+        font-size: 2.5rem;
+        margin: 0;
+      }
+
+      .projects-intro {
+        font-size: 1.2rem;
+        line-height: 1.7;
+        margin-bottom: 40px;
+        max-width: 800px;
+      }
+
+      /* Category Filter Styles */
+      .project-filter {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 40px;
+      }
+
+      .filter-button {
+        padding: 8px 16px;
+        border-radius: 20px;
+        background-color: var(--card-bg);
+        color: var(--text-primary);
+        border: 1px solid rgba(128, 128, 128, 0.2);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 500;
+      }
+
+      .filter-button.active {
+        background-color: var(--headline-color);
+        color: var(--bg-primary);
+      }
+
+      .filter-button:hover:not(.active) {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Project Grid Styles */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 30px;
+        margin-bottom: 50px;
+      }
+
+      /* Project Card Styles */
+      .project-card {
+        position: relative;
+        border-radius: 16px;
+        overflow: hidden;
+        background-color: var(--contact-bg);
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        border: var(--card-border);
+      }
+
+      .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .project-image {
+        width: 100%;
+        height: 220px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .project-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .project-card:hover .project-image img {
+        transform: scale(1.05);
+      }
+
+      .project-category {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        padding: 5px 12px;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        z-index: 2;
+      }
+
+      .project-content {
+        padding: 25px;
+      }
+
+      .project-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin: 0 0 10px;
+        color: var(--headline-color);
+      }
+
+      .project-description {
+        font-size: 0.95rem;
+        color: var(--text-primary);
+        margin-bottom: 15px;
+        line-height: 1.6;
+      }
+
+      .project-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 20px;
+      }
+
+      .tech-tag {
+        padding: 4px 10px;
+        background-color: rgba(128, 128, 128, 0.1);
+        border-radius: 15px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: var(--text-primary);
+      }
+
+      .project-links {
+        display: flex;
+        gap: 15px;
+      }
+
+      .project-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 8px 16px;
+        border-radius: 5px;
+        font-size: 0.9rem;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .project-link.demo {
+        color: var(--headline-color);
+        border: 1px solid rgba(128, 128, 128, 0.3);
+      }
+
+      .project-link.code {
+        background-color: transparent;
+        color: var(--text-primary);
+        border: 1px solid rgba(128, 128, 128, 0.3);
+      }
+
+      .project-link.live {
+        color: var(--text-primary);
+        border: 1px solid rgba(128, 128, 128, 0.3);
+      }
+
+      .project-link:hover {
+        transform: translateY(-3px);
+      }
+
+      /* Featured Project Styles (larger display) */
+      .featured-project {
+        grid-column: span 2;
+        display: flex;
+        flex-direction: row;
+      }
+
+      .featured-project .project-image {
+        width: 60%;
+        height: auto;
+      }
+
+      .featured-project .project-content {
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .featured-project .project-title {
+        font-size: 2rem;
+      }
+
+      .featured-project .project-description {
+        font-size: 1.1rem;
+      }
+
+      .featured-tag {
+        background-color: var(--bento-bg-3);
+        color: white;
+        padding: 4px 12px;
+        border-radius: 15px;
+        width: fit-content;
+        font-size: 0.8rem;
+        font-weight: 600;
+        display: inline-block;
+        margin-bottom: 10px;
+      }
+
+      /* Detailed Project Styles */
+      .project-details-section {
+        margin: 60px 0;
+      }
+
+      .project-details {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .project-detail-item {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+      }
+
+      .project-detail-image {
+        flex: 0 0 50%;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .project-detail-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .project-detail-content {
+        flex: 1;
+      }
+
+      .project-detail-content h3 {
+        font-size: 1.8rem;
+        margin: 0 0 20px;
+        color: var(--headline-color);
+      }
+
+      .project-detail-content p {
+        font-size: 1.05rem;
+        line-height: 1.7;
+        margin-bottom: 20px;
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 900px) {
+        .featured-project {
+          flex-direction: column;
+          grid-column: span 1;
+        }
+
+        .featured-project .project-image {
+          width: 100%;
+        }
+
+        .featured-project .project-content {
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .project-details-section {
+          margin: 40px 0;
+        }
+
+        .project-detail-item {
+          flex-direction: column;
+        }
+
+        .project-detail-image {
+          flex: 0 0 100%;
+        }
+
+        .projects-grid {
+          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        }
+      }
+
+      @media (max-width: 500px) {
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .projects-page-header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="taskbar__container">
+      <div class="taskbar">
+        <button
+          id="themeToggle"
+          class="theme-toggle"
+          aria-label="Toggle dark mode"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="theme-toggle-icon"
+          >
+            <path
+              d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+              class="moon-icon"
+            ></path>
+            <circle
+              cx="12"
+              cy="12"
+              r="5"
+              class="sun-icon-circle"
+              style="display: none"
+            ></circle>
+            <line
+              x1="12"
+              y1="1"
+              x2="12"
+              y2="3"
+              class="sun-icon-line"
+              style="display: none"
+            ></line>
+            <line
+              x1="12"
+              y1="21"
+              x2="12"
+              y2="23"
+              class="sun-icon-line"
+              style="display: none"
+            ></line>
+            <line
+              x1="4.22"
+              y1="4.22"
+              x2="5.64"
+              y2="5.64"
+              class="sun-icon-line"
+              style="display: none"
+            ></line>
+            <line
+              x1="18.36"
+              y1="18.36"
+              x2="19.78"
+              y2="19.78"
+              class="sun-icon-line"
+              style="display: none"
+            ></line>
+            <line
+              x1="1"
+              y1="12"
+              x2="3"
+              y2="12"
+              class="sun-icon-line"
+              style="display: none"
+            ></line>
+            <line
+              x1="21"
+              y1="12"
+              x2="23"
+              y2="12"
+              class="sun-icon-line"
+              style="display: none"
+            ></line>
+            <line
+              x1="4.22"
+              y1="19.78"
+              x2="5.64"
+              y2="18.36"
+              class="sun-icon-line"
+              style="display: none"
+            ></line>
+            <line
+              x1="18.36"
+              y1="5.64"
+              x2="19.78"
+              y2="4.22"
+              class="sun-icon-line"
+              style="display: none"
+            ></line>
+          </svg>
+        </button>
+        <a href="index.html#home" class="taskbar__item">Hey</a>
+        <a href="index.html#work" class="taskbar__item">Work</a>
+        <a href="index.html#story" class="taskbar__item">About</a>
+        <a href="index.html#contact" class="taskbar__item">Contact</a>
+      </div>
+
+      <!-- Hamburger Menu Button -->
+      <button class="hamburger-menu" aria-label="Open Menu">
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
+      </button>
+
+      <!-- Mobile Navigation Menu -->
+      <div class="mobile-menu">
+        <div class="mobile-menu-header">
+          <button
+            id="mobileDarkMode"
+            class="theme-toggle"
+            aria-label="Toggle dark mode"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="theme-toggle-icon"
+            >
+              <path
+                d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+                class="mobile-moon-icon"
+              ></path>
+              <circle
+                cx="12"
+                cy="12"
+                r="5"
+                class="mobile-sun-icon-circle"
+                style="display: none"
+              ></circle>
+              <line
+                x1="12"
+                y1="1"
+                x2="12"
+                y2="3"
+                class="mobile-sun-icon-line"
+                style="display: none"
+              ></line>
+              <line
+                x1="12"
+                y1="21"
+                x2="12"
+                y2="23"
+                class="mobile-sun-icon-line"
+                style="display: none"
+              ></line>
+              <line
+                x1="4.22"
+                y1="4.22"
+                x2="5.64"
+                y2="5.64"
+                class="mobile-sun-icon-line"
+                style="display: none"
+              ></line>
+              <line
+                x1="18.36"
+                y1="18.36"
+                x2="19.78"
+                y2="19.78"
+                class="mobile-sun-icon-line"
+                style="display: none"
+              ></line>
+              <line
+                x1="1"
+                y1="12"
+                x2="3"
+                y2="12"
+                class="mobile-sun-icon-line"
+                style="display: none"
+              ></line>
+              <line
+                x1="21"
+                y1="12"
+                x2="23"
+                y2="12"
+                class="mobile-sun-icon-line"
+                style="display: none"
+              ></line>
+              <line
+                x1="4.22"
+                y1="19.78"
+                x2="5.64"
+                y2="18.36"
+                class="mobile-sun-icon-line"
+                style="display: none"
+              ></line>
+              <line
+                x1="18.36"
+                y1="5.64"
+                x2="19.78"
+                y2="4.22"
+                class="mobile-sun-icon-line"
+                style="display: none"
+              ></line>
+            </svg>
+          </button>
+          <button class="close-menu" aria-label="Close Menu">&times;</button>
+        </div>
+        <div class="mobile-menu-items">
+          <a href="index.html#home" class="mobile-menu-item">Hey</a>
+          <a href="index.html#work" class="mobile-menu-item">Work</a>
+          <a href="index.html#story" class="mobile-menu-item">About</a>
+          <a href="index.html#contact" class="mobile-menu-item">Contact</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="projects-page-container">
+      <div class="projects-page-header reveal-section">
+        <h1>My Projects</h1>
+        <a href="index.html" class="back-button">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M15 18l-6-6 6-6"></path>
+          </svg>
+          Back to Home
+        </a>
+      </div>
+
+      <div class="projects-intro reveal-section delay-100">
+        <p>
+          Welcome to my project portfolio! Here you'll find a collection of my
+          work across various domains including AI/ML applications, web
+          development, and more. Each project represents a unique challenge I've
+          tackled, showcasing my problem-solving approach and technical skills.
+        </p>
+      </div>
+
+      <div class="project-filter reveal-section delay-200">
+        <button class="filter-button active" data-filter="all">
+          All Projects
+        </button>
+        <button class="filter-button" data-filter="ai-ml">AI & ML</button>
+        <button class="filter-button" data-filter="web-dev">
+          Web Development
+        </button>
+        <button class="filter-button" data-filter="ui-ux">UI/UX Design</button>
+        <button class="filter-button" data-filter="client">Client Work</button>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="projects-grid">
+        <!-- Featured Project: Gateway Horizon International -->
+        <div
+          class="project-card featured-project reveal-section delay-300"
+          data-category="client"
+        >
+          <div class="project-image">
+            <img
+              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60"
+              alt="Gateway Horizon International Website"
+            />
+            <div class="project-category">Client Work</div>
+          </div>
+          <div class="project-content">
+            <span class="featured-tag">Featured Project</span>
+            <h3 class="project-title">Gateway Horizon International</h3>              <p class="project-description">
+                A comprehensive brand identity project for an international trading company specializing in packaging solutions and global trade services. Designed and developed the website, logo, visiting cards, and marketing brochure to establish a cohesive brand presence.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">HTML5</span>
+                <span class="tech-tag">CSS3</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Responsive Design</span>
+                <span class="tech-tag">Graphic Design</span>
+                <span class="tech-tag">Branding</span>
+                <span class="tech-tag">Netlify</span>
+              </div>
+            <div class="project-links">
+              <a
+                href="https://gatewayhorizoninternational.com"
+                class="project-link live"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+                Visit Website
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- RAG ChatBot -->
+        <div
+          class="project-card reveal-section delay-300"
+          data-category="ai-ml"
+        >
+          <div class="project-image">
+            <img
+              src="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60"
+              alt="RAG ChatBot"
+            />
+            <div class="project-category">AI & ML</div>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">RAG ChatBot</h3>
+            <p class="project-description">
+              Built an advanced RAG (Retrieval Augmented Generation) chatbot during my internship, providing intelligent responses with context-aware information retrieval and enhanced accuracy.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">RAG</span>
+              <span class="tech-tag">NLP</span>
+              <span class="tech-tag">Vector Databases</span>
+              <span class="tech-tag">LLM</span>
+            </div>
+            <div class="project-links">
+              <a
+                href="https://woocommercegst.co.in"
+                class="project-link live"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+                Visit Website
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI Chatbot -->
+        <div
+          class="project-card reveal-section delay-300"
+          data-category="ai-ml"
+        >
+          <div class="project-image">
+            <img
+              src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YWklMjBjaGF0Ym90fGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60"
+              alt="AI Chatbot"
+            />
+            <div class="project-category">AI & ML</div>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Stella AI Chatbot</h3>
+            <p class="project-description">
+              Created Stella, a friendly voice-activated AI assistant that
+              provides natural, conversational responses using advanced NLP
+              techniques.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">NLP</span>
+              <span class="tech-tag">Speech Recognition</span>
+              <span class="tech-tag">Machine Learning</span>
+            </div>
+            <div class="project-links">
+              <a
+                href="https://github.com/Tanish-Dev/Ai-Chatbot"
+                class="project-link code"
+                target="_blank"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                  ></path>
+                </svg>
+                View Code
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cancer Detection Project -->
+        <div
+          class="project-card reveal-section delay-400"
+          data-category="ai-ml"
+        >
+          <div class="project-image">
+            <img
+              src="https://images.unsplash.com/photo-1576086213369-97a306d36557?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2FuY2VyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60"
+              alt="Cancer Detection Project"
+            />
+            <div class="project-category">AI & ML</div>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Cancer Detection Project</h3>
+            <p class="project-description">
+              A deep learning web application for cancer detection from medical images. Uses convolutional neural networks to analyze medical scans and identify potential cancer markers with high accuracy.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">TensorFlow</span>
+              <span class="tech-tag">Computer Vision</span>
+              <span class="tech-tag">Flask</span>
+              <span class="tech-tag">HTML/CSS</span>
+            </div>
+            <div class="project-links">
+              <a
+                href="https://github.com/Tanish-Dev/CancerDetectionProject"
+                class="project-link code"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                  ></path>
+                </svg>
+                View Code
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- House Price Prediction -->
+        <div
+          class="project-card reveal-section delay-400"
+          data-category="ai-ml"
+        >
+          <div class="project-image">
+            <img
+              src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aG91c2UlMjBwcmljZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60"
+              alt="House Price Prediction"
+            />
+            <div class="project-category">AI & ML</div>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">House Price Prediction</h3>
+            <p class="project-description">
+              A machine learning web application that predicts house prices in
+              Pune based on various features like location, size, and amenities.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Scikit-learn</span>
+              <span class="tech-tag">Pandas</span>
+              <span class="tech-tag">Flask</span>
+              <span class="tech-tag">JavaScript</span>
+            </div>
+            <div class="project-links">
+              <a
+                href="https://house-price-prediction-p1px.onrender.com"
+                class="project-link demo"
+                target="_blank"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                  ></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+                Live Demo
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Apple Clone -->
+        <div
+          class="project-card reveal-section delay-400"
+          data-category="web-dev ui-ux"
+        >
+          <div class="project-image">
+            <img
+              src="https://images.unsplash.com/photo-1491933382434-500287f9b54b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YXBwbGUlMjB3ZWJzaXRlfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60"
+              alt="Apple Website Clone"
+            />
+            <div class="project-category">Web Development</div>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Apple Website Clone</h3>
+            <p class="project-description">
+              A pixel-perfect clone of the Apple website, showcasing my
+              front-end development skills and attention to detail.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">HTML5</span>
+              <span class="tech-tag">CSS3</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">Responsive Design</span>
+            </div>
+            <div class="project-links">
+              <a
+                href="https://tanishtriestodeploy.netlify.app"
+                class="project-link demo"
+                target="_blank"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                  ></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+                Live Demo
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- BluCarbon Platform -->
+        <div
+          class="project-card reveal-section delay-500"
+          data-category="web-dev ai-ml"
+        >
+          <div class="project-image">
+            <img
+              src="assets/blucarbondemo.png"
+              alt="BluCarbon Platform"
+            />
+            <div class="project-category">Web Development</div>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">BluCarbon Platform</h3>
+            <p class="project-description">
+              A comprehensive blockchain-enabled platform for blue carbon ecosystem monitoring, MRV (Measurement, Reporting, and Verification), and carbon credit management with satellite imagery integration.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">FastAPI</span>
+              <span class="tech-tag">MongoDB</span>
+              <span class="tech-tag">Blockchain</span>
+              <span class="tech-tag">Polygon</span>
+              <span class="tech-tag">Satellite Imagery</span>
+            </div>
+            <div class="project-links">
+              <a
+                href="https://github.com/Tanish-Dev/blucarbon-main"
+                class="project-link code"
+                target="_blank"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                  ></path>
+                </svg>
+                View Code
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Client Work -->
+        <div
+          class="project-card reveal-section delay-500"
+          data-category="client web-dev"
+        >
+          <div class="project-image">
+            <img
+              src="assets/Screenshot 2025-04-15 at 1.50.37 AM.png"
+              alt="Sunshine Hypnosis Academy"
+            />
+            <div class="project-category">Client Work</div>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Sunshine Hypnosis Academy</h3>
+            <p class="project-description">
+              Designed and developed a fully functional and responsive website
+              for a hypnosis academy client, focusing on user experience and
+              conversion optimization.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">HTML5</span>
+              <span class="tech-tag">CSS3</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">Responsive Design</span>
+              <span class="tech-tag">SEO</span>
+            </div>
+            <div class="project-links">
+              <a
+                href="https://sunshinehypnosisacademy.com/"
+                class="project-link demo"
+                target="_blank"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                  ></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+                Visit Website
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Detailed Project Section -->
+      <div class="project-details-section reveal-section">
+        <h2>Project Highlights</h2>
+
+        <div class="project-details">
+          <!-- Gateway Horizon International Project Detail -->
+          <div class="project-detail-item reveal-section delay-200">
+            <div class="project-detail-image">
+              <img
+                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60"
+                alt="Gateway Horizon International Website"
+              />
+            </div>
+            <div class="project-detail-content">
+              <h3>Gateway Horizon International</h3>
+              <p>
+                This comprehensive branding project involved developing a complete identity package for Gateway Horizon International, a company specializing in international trade and packaging solutions. The client needed a full brand presence to establish credibility in the global market, including website, logo, business cards, and marketing materials.
+              </p>
+              <p>
+                I designed a distinctive logo that represented the company's global reach and packaging focus, created professional business cards that reinforced the brand identity, and developed a visually compelling marketing brochure to showcase their services and capabilities.
+              </p>
+              <p>
+                For the digital presence, I implemented a clean, corporate website design with intuitive navigation and clear calls-to-action to improve user engagement and lead conversion. The website features comprehensive service pages, an about section highlighting company expertise, and a contact system that makes it easy for potential clients to reach out. The site is fully responsive and optimized for search engines.
+              </p>
+              <div class="project-links">
+                <a
+                  href="https://gatewayhorizoninternational.netlify.app/"
+                  class="project-link live"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                  Visit Website
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hypnosis Academy Website Detail -->
+          <div class="project-detail-item reveal-section delay-300">
+            <div class="project-detail-content">
+              <h3>Sunshine Hypnosis Academy Website</h3>
+              <p>
+                This client project involved creating a complete online presence
+                for a new hypnosis training academy. I worked closely with the
+                client to understand their brand values, target audience, and
+                business goals.
+              </p>
+              <p>
+                The design focused on creating a calming yet professional
+                atmosphere that would inspire trust in potential students. I
+                implemented a user-friendly course registration system and
+                optimized the site for search engines to increase organic
+                traffic.
+              </p>
+              <p>
+                After launching the site, the client saw a 40% increase in
+                course inquiries and a significant improvement in their online
+                visibility for key search terms related to hypnotherapy
+                training.
+              </p>
+              <div class="project-links">
+                <a
+                  href="https://sunshinehypnosisacademy.com/"
+                  class="project-link demo"
+                  target="_blank"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                    ></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                  Visit Website
+                </a>
+              </div>
+            </div>
+            <div class="project-detail-image">
+              <img
+                src="assets/Screenshot 2025-04-15 at 1.50.37 AM.png"
+                alt="Sunshine Hypnosis Academy"
+              />
+            </div>
+          </div>
+
+          <!-- Cancer Detection Project Detail -->
+          <div class="project-detail-item reveal-section delay-400">
+            <div class="project-detail-image">
+              <img
+                src="https://images.unsplash.com/photo-1576086213369-97a306d36557?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2FuY2VyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60"
+                alt="Cancer Detection Project"
+              />
+            </div>
+            <div class="project-detail-content">
+              <h3>Cancer Detection Project</h3>
+              <p>
+                This project represents my deep dive into medical AI applications. I trained a convolutional neural network on thousands of histopathological images to identify malignant tissue patterns with over 92% accuracy.
+              </p>
+              <p>
+                The challenging aspect of this project was balancing model complexity with performance. I implemented data augmentation techniques to improve training with limited medical datasets and utilized transfer learning with pre-trained models to achieve better results.
+              </p>
+              <p>
+                The web interface allows medical professionals to upload scans and receive immediate analysis results, potentially speeding up diagnosis processes in resource-limited settings.
+              </p>
+              <div class="project-links">
+                <a
+                  href="https://github.com/Tanish-Dev/CancerDetectionProject"
+                  class="project-link code"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                    ></path>
+                  </svg>
+                  View Code
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact CTA -->
+      <div class="contact_section reveal-section" style="margin: 5rem 0">
+        <h2 class="contact_heading">Interested in working together?</h2>
+        <div class="contact_container">
+          <div class="contact_info reveal-section delay-200">
+            <p>
+              If you're looking for a developer who combines technical skills
+              with creative problem-solving, I'd love to hear from you. Let's
+              discuss how I can help bring your ideas to life!
+            </p>
+            <div class="contact-button-container reveal-section delay-300">
+              <a href="contact.html" class="primary-contact-button">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  ></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                Contact Me
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="custom-footer reveal-section">
+      <a class="email" href="mailto:tanishbhavsar2007@gmail.com"
+        >tanishbhavsar2007@gmail.com</a
+      >
+      <div class="social-icons">
+        <a href="#"
+          ><img src="assets/Screenshot 2025-04-07 at 1.26.39 AM.png" alt="X"
+        /></a>
+        <a href="#"
+          ><img
+            src="assets/Screenshot 2025-04-07 at 1.27.49 AM.png"
+            alt="Instagram"
+        /></a>
+        <a
+          href="https://github.com/Tanish-Dev"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><img
+            src="https://cdn-icons-png.flaticon.com/512/733/733553.png"
+            alt="GitHub"
+        /></a>
+        <a
+          href="https://www.linkedin.com/in/tanish-bhavsar-a96354286/"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><img
+            src="assets/Screenshot 2025-04-07 at 1.28.20 AM.png"
+            alt="LinkedIn"
+        /></a>
+      </div>
+    </footer>
+
+    <!-- Interactive Watermark/Credits -->
+    <div class="credits-container">
+      <div class="credits-wrapper">
+        <div class="credits-text" id="creditsText"></div>
+        <div class="credits-cursor"></div>
+      </div>
+      <div class="credits-effects">
+        <!-- Particles divs removed -->
+      </div>
+    </div>
+
+    <!-- Add reference to external JavaScript file -->
+    <script src="main.js"></script>
+    <!-- Project page specific JavaScript -->
+    <script>
+      // Project filtering functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const filterButtons = document.querySelectorAll(".filter-button");
+        const projectCards = document.querySelectorAll(".project-card");
+
+        // Add click event to filter buttons
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            // Remove active class from all buttons
+            filterButtons.forEach((btn) => btn.classList.remove("active"));
+
+            // Add active class to clicked button
+            this.classList.add("active");
+
+            // Get the filter value
+            const filterValue = this.getAttribute("data-filter");
+
+            // Filter the projects
+            projectCards.forEach((card) => {
+              const categories = card.getAttribute("data-category").split(" ");
+
+              if (filterValue === "all" || categories.includes(filterValue)) {
+                card.style.display = "block";
+                // Re-trigger the reveal animation
+                setTimeout(() => {
+                  card.classList.add("active");
+                }, 100);
+              } else {
+                card.style.display = "none";
+                card.classList.remove("active");
+              }
+            });
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

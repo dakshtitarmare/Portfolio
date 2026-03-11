@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=width=device-width, initial-scale=1.0"
+    />
+    <title>Daksh Titarmare | Portfolio</title>
+    <!-- Favicon links -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/favicon/apple-touch-icon.png"
+    />
+  
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="assets/favicon/site.webmanifest" />
+    <link rel="shortcut icon" href="assets/favicon/favicon.ico" />
+    <meta name="theme-color" content="#ffffff" />
+    <!-- End favicon links -->
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="taskbar__container">
+      <div class="taskbar">
+        <button
+          id="themeToggle"
+          class="theme-toggle"
+          aria-label="Toggle dark mode"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="theme-toggle-icon"
+          >
+            <path
+              d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+              class="moon-icon"
+            ></path>
+            <circle
+              cx="12"
+              cy="12"
+              r="5"
+              class="sun-icon-circle"
+              style="display: none"
+            ></circle>
+            <line
+              x1="12"
+              y1="1"
+              x2="12"
+              y2="3"
+              class="sun-icon-line"
+              style="display: none"
+            ></line>
+            <line
+              x1="12"
+              y1="21"
+              x2="12"
+              y2="23"
+              class="sun-icon-line"
+              style="display: none"
+            ></line>
+            <line
+              x1="4.22"
+              y1="4.22"
+              x2="5.64"
+              y2="5.64"
+              class="sun-icon-line"
+              style="display: none"
+            ></line>
+            <line
+              x1="18.36"
+              y1="18.36"
+              x2="19.78"
+              y2="19.78"
+              class="sun-icon-line"
+              style="display: none"
+            ></line>
+            <line
+              x1="1"
+              y1="12"
+              x2="3"
+              y2="12"
+              class="sun-icon-line"
+              style="display: none"
+            ></line>
+            <line
+              x1="21"
+              y1="12"
+              x2="23"
+              y2="12"
+              class="sun-icon-line"
+              style="display: none"
+            ></line>
+            <line
+              x1="4.22"
+              y1="19.78"
+              x2="5.64"
+              y2="18.36"
+              class="sun-icon-line"
+              style="display: none"
+            ></line>
+            <line
+              x1="18.36"
+              y1="5.64"
+              x2="19.78"
+              y2="4.22"
+              class="sun-icon-line"
+              style="display: none"
+            ></line>
+          </svg>
+        </button>
+        <a href="#home" class="taskbar__item">Hey</a>
+        <a href="#work" class="taskbar__item">Work</a>
+        <a href="#story" class="taskbar__item">About</a>
+        <a href="#contact" class="taskbar__item">Contact</a>
+      </div>
+
+      <!-- Hamburger Menu Button -->
+      <button class="hamburger-menu" aria-label="Open Menu">
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
+      </button>
+
+      <!-- Mobile Navigation Menu -->
+      <div class="mobile-menu">
+        <div class="mobile-menu-header">
+          <button
+            id="mobileDarkMode"
+            class="theme-toggle"
+            aria-label="Toggle dark mode"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="theme-toggle-icon"
+            >
+              <path
+                d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+                class="mobile-moon-icon"
+              ></path>
+              <circle
+                cx="12"
+                cy="12"
+                r="5"
+                class="mobile-sun-icon-circle"
+                style="display: none"
+              ></circle>
+              <line
+                x1="12"
+                y1="1"
+                x2="12"
+                y2="3"
+                class="mobile-sun-icon-line"
+                style="display: none"
+              ></line>
+              <line
+                x1="12"
+                y1="21"
+                x2="12"
+                y2="23"
+                class="mobile-sun-icon-line"
+                style="display: none"
+              ></line>
+              <line
+                x1="4.22"
+                y1="4.22"
+                x2="5.64"
+                y2="5.64"
+                class="mobile-sun-icon-line"
+                style="display: none"
+              ></line>
+              <line
+                x1="18.36"
+                y1="18.36"
+                x2="19.78"
+                y2="19.78"
+                class="mobile-sun-icon-line"
+                style="display: none"
+              ></line>
+              <line
+                x1="1"
+                y1="12"
+                x2="3"
+                y2="12"
+                class="mobile-sun-icon-line"
+                style="display: none"
+              ></line>
+              <line
+                x1="21"
+                y1="12"
+                x2="23"
+                y2="12"
+                class="mobile-sun-icon-line"
+                style="display: none"
+              ></line>
+              <line
+                x1="4.22"
+                y1="19.78"
+                x2="5.64"
+                y2="18.36"
+                class="mobile-sun-icon-line"
+                style="display: none"
+              ></line>
+              <line
+                x1="18.36"
+                y1="5.64"
+                x2="19.78"
+                y2="4.22"
+                class="mobile-sun-icon-line"
+                style="display: none"
+              ></line>
+            </svg>
+          </button>
+          <button class="close-menu" aria-label="Close Menu">&times;</button>
+        </div>
+        <div class="mobile-menu-items">
+          <a href="#home" class="mobile-menu-item">Hey</a>
+          <a href="#work" class="mobile-menu-item">Work</a>
+          <a href="#story" class="mobile-menu-item">About</a>
+          <a href="#contact" class="mobile-menu-item">Contact</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="gradient-block-container" id="home">
+      <div class="gradient-block"></div>
+      <div class="layover-text">i Solve Problems through Code</div>
+    </div>
+
+    <div class="screen">
+      <h1>Daksh Titarmare.</h1>
+    </div>
+    <div class="sub-text">
+      <h3>Engineer | Debugger | Coder</h3>
+    </div>
+    <div>
+      <img
+        class="tick"
+        src="assets/Screenshot 2025-04-07 at 12.39.15 AM.png"
+        alt=""
+      />
+    </div>
+
+    <!-- Skills section with carousel - Now First -->
+    <div class="skills_section reveal-section" id="skills">
+      <div class="skills_text">
+        <h2>Skills</h2>
+        <p class="skills_description">
+          I specialize in development with a focus on AI and DevOps integration. My technical expertise spans Backend development, Cross platform development , and UX design, allowing me to build comprehensive
+          solutions that combine functionality with elegant user experiences.
+        </p>
+      </div>
+
+      <div class="skills_carousel reveal-section delay-200">
+        <div class="skills_track" id="skillsTrack">
+          <!-- Original skill items -->
+          <div class="skill_item">
+            <div class="skill_icon">
+              <img src="assets/icons/html5.svg" alt="HTML5" />
+            </div>
+            HTML/CSS
+          </div>
+          <div class="skill_item">
+            <div class="skill_icon">
+              <img
+                src="assets/icons/icons8-javascript.svg?v=1"
+                alt="JavaScript"
+              />
+            </div>
+            JavaScript
+          </div>
+          <div class="skill_item">
+            <div class="skill_icon">
+              <img src="assets/icons/react.svg" alt="React" />
+            </div>
+            React
+          </div>
+          <div class="skill_item">
+            <div class="skill_icon">
+              <img src="assets/icons/figma.svg" alt="UI/UX Design" />
+            </div>
+            UI/UX Design
+          </div>
+          <div class="skill_item">
+            <div class="skill_icon">
+              <img src="assets/icons/c-program-icon.svg" alt="C" />
+            </div>
+            C lang
+          </div>
+          <div class="skill_item">
+            <div class="skill_icon">
+              <img
+                src="assets/icons/git-seeklogo.svg?v=1"
+                alt="Version Control"
+              />
+            </div>
+            Version Control
+          </div>
+          <div class="skill_item">
+            <div class="skill_icon">
+              <img src="assets/icons/python-5.svg" alt="Python" />
+            </div>
+            Python
+          </div>
+          <div class="skill_item">
+            <div class="skill_icon">
+              <img src="assets/icons/java.svg" alt="Java" />
+            </div>
+            Java
+          </div>
+          <div class="skill_item">
+            <div class="skill_icon">
+              <img
+                src="assets/icons/flutter.svg"
+                alt="Flutter"
+              />
+            </div>
+            Flutter
+          </div>
+          <div class="skill_item">
+            <div class="skill_icon">
+              <img
+                src="assets/icons/tailwindcss-mark.d52e9897 (1).svg"
+                alt="Node.js"
+              />
+            </div>
+            Tailwind CSS
+          </div>
+        
+          <!-- Duplicate items for infinite scroll effect -->
+          <div class="skill_item">
+            <div class="skill_icon">
+              <img src="assets/icons/html5.svg" alt="HTML5" />
+            </div>
+            HTML/CSS
+          </div>
+          <div class="skill_item">
+            <div class="skill_icon">
+              <img
+                src="assets/icons/icons8-javascript.svg?v=1"
+                alt="JavaScript"
+              />
+            </div>
+            JavaScript
+          </div>
+          <div class="skill_item">
+            <div class="skill_icon">
+              <img src="assets/icons/react.svg" alt="React" />
+            </div>
+            React
+          </div>
+          <div class="skill_item">
+            <div class="skill_icon">
+              <img src="assets/icons/figma.svg" alt="UI/UX Design" />
+            </div>
+            UI/UX Design
+          </div>
+          <div class="skill_item">
+            <div class="skill_icon">
+              <img src="assets/icons/c.svg" alt="C++" />
+            </div>
+            C++
+          </div>
+          <div class="skill_item">
+            <div class="skill_icon">
+              <img
+                src="assets/icons/git-seeklogo.svg?v=1"
+                alt="Version Control"
+              />
+            </div>
+            Version Control
+          </div>
+          <div class="skill_item">
+            <div class="skill_icon">
+              <img src="assets/icons/python.svg" alt="Python" />
+            </div>
+            Python
+          </div>
+          <div class="skill_item">
+            <div class="skill_icon">
+              <img src="assets/icons/tensorflow.svg" alt="TensorFlow" />
+            </div>
+            TensorFlow
+          </div>
+          <div class="skill_item">
+            <div class="skill_icon">
+              <img
+                src="assets/icons/tailwindcss-mark.d52e9897 (1).svg"
+                alt="Node.js"
+              />
+            </div>
+            Tailwind CSS
+          </div>
+          <div class="skill_item">
+            <div class="skill_icon">
+              <img src="assets/icons/n8n.svg" alt="n8n" />
+            </div>
+            n8n
+          </div>
+        </div>
+      </div>
+    </div>
+
+   
+
+    <!-- Latest Work Section - Now Second -->
+    <div class="container2 reveal-section" id="work">
+      <h2>My latest work</h2>
+    </div>
+    <div class="bento-container">
+      <div class="bento-box large reveal-section delay-100">
+        <div class="bento-content color-1">
+          <h3>Gateway Horizon International</h3>
+          <p>
+            A professional business website for an international trading company, featuring modern design and comprehensive service showcase.
+          </p>
+          <a
+            href="https://gatewayhorizoninternational.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="bento-button"
+            >View Website</a
+          >
+        </div>
+      </div>
+
+      <div class="bento-box medium reveal-section delay-200">
+        <div class="bento-content color-2">
+          <h3>RAG ChatBot</h3>
+          <p>
+            Built an advanced RAG chatbot, providing intelligent responses with context-aware information retrieval.
+          </p>
+          <a
+            href="https://woocommercegst.co.in"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="bento-button"
+            >View Website</a
+          >
+        </div>
+      </div>
+
+      <div class="bento-box small reveal-section delay-300">
+        <div class="bento-content color-3">
+          <h3>Apple Clone</h3>
+          <p>Created a clone of the apple website</p>
+          <a
+            href="https://tanishtriestodeploy.netlify.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="bento-button web-link"
+            >View Project</a
+          >
+        </div>
+      </div>
+
+      <div class="bento-box medium vertical reveal-section delay-200">
+        <div class="bento-content color-4">
+          <h3>House Price Prediction</h3>
+          <p>
+            A machine learning web application that predicts house prices in
+            Pune based on various features.
+          </p>
+          <a
+            href="https://house-price-prediction-p1px.onrender.com"
+            class="bento-button"
+            target="_blank"
+            rel="noopener noreferrer"
+            >View Project</a
+          >
+        </div>
+      </div>
+
+      <div class="bento-box small reveal-section delay-300">
+        <div class="bento-content color-5">
+          <h3>BluCarbon Platform</h3>
+          <p>Carbon Credit Management & Blue Carbon Ecosystem Platform</p>
+          <a
+            href="https://github.com/Tanish-Dev/blucarbon-main"
+            class="bento-button web-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            >View Project</a
+          >
+        </div>
+      </div>
+
+      <div class="bento-box medium reveal-section delay-400">
+        <div class="bento-content color-6">
+          <h3>Sunshine Hypnosis Academy</h3>
+          <p>
+            Professional website for hypnotherapy training with custom responsive design, and content management.
+          </p>
+          <a
+            href="https://sunshinehypnosisacademy.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="bento-button web-link"
+            >Visit here</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- View All Projects Button -->
+    <div class="view-all-projects-container reveal-section delay-500">
+      <a href="projects.html" class="view-all-projects-button">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="8" y1="12" x2="16" y2="12"></line>
+          <line x1="12" y1="8" x2="12" y2="16"></line>
+        </svg>
+        View All Projects
+      </a>
+    </div>
+
+     <!-- Work Experience Section -->
+    <div class="experience_section reveal-section" id="experience">
+      <div class="experience_text">
+        <h2>Work Experience</h2>
+        <p class="experience_description">
+          My professional journey includes hands-on experience in AI development and web development through internships and freelance work, where I've applied cutting-edge technologies to solve real-world problems.
+        </p>
+      </div>
+
+      <div class="experience_timeline reveal-section delay-200">
+        <div class="experience_item reveal-section delay-100">
+          <div class="experience_content">
+            <div class="experience_header">
+              <h3>AI Intern</h3>
+              <span class="experience_company">Stark Digital Media Services</span>
+              <div class="experience_meta">
+                <span class="experience_duration">2-Month Summer Internship</span>
+                <span class="experience_status completed">Completed</span>
+              </div>
+            </div>
+            <p class="experience_description_text">
+              Worked on AI and machine learning projects, developing intelligent solutions and gaining hands-on experience with cutting-edge AI technologies. Contributed to real-world AI applications and learned from industry professionals.
+            </p>
+            <div class="experience_achievements">
+              <div class="achievement_item">
+                <span class="achievement_number">6+</span>
+                <span class="achievement_label">AI Projects</span>
+              </div>
+              <div class="achievement_item">
+                <span class="achievement_number">100%</span>
+                <span class="achievement_label">Project Completion</span>
+              </div>
+              <div class="achievement_item">
+                <span class="achievement_number">2</span>
+                <span class="achievement_label">Months Experience</span>
+              </div>
+            </div>
+            <div class="experience_skills">
+              <span class="skill_tag">AI/ML</span>
+              <span class="skill_tag">Python</span>
+              <span class="skill_tag">AgenticAi</span>
+              <span class="skill_tag">Data Analysis</span>
+            </div>
+            <div style="display: none;" class="experience_highlights">
+              <h4>Key Contributions:</h4>
+              <ul class="highlights_list">
+                <li>Developed machine learning models for data analysis</li>
+                <li>Implemented AI algorithms for business solutions</li>
+                <li>Collaborated with senior developers on complex projects</li>
+                <li>Gained expertise in modern AI development practices</li>
+              </ul>
+            </div>
+            <a href="https://www.starkdigital.net" target="_blank" rel="noopener noreferrer" class="company_link">
+              Visit Company
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 17L17 7M17 7H7M17 7V17"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="experience_item reveal-section delay-200">
+          <div class="experience_content">
+            <div class="experience_header">
+              <h3>Freelance Web Developer</h3>
+              <span class="experience_company">Self-Employed</span>
+              <div class="experience_meta">
+                <span class="experience_duration">Ongoing</span>
+                <span class="experience_status active">Active</span>
+              </div>
+            </div>
+            <p class="experience_description_text">
+              Developing custom websites and web applications for clients across various industries. Specializing in modern web technologies, responsive design, and user experience optimization to deliver high-quality digital solutions.
+            </p>
+            <div style="display: none;" class="experience_achievements">
+              <div class="achievement_item">
+                <span class="achievement_number">2</span>
+                <span class="achievement_label">Projects Delivered</span>
+              </div>
+              <div class="achievement_item">
+                <span class="achievement_number">100%</span>
+                <span class="achievement_label">Client Satisfaction</span>
+              </div>
+              <div class="achievement_item">
+                <span class="achievement_number">24/7</span>
+                <span class="achievement_label">Passion for Code</span>
+              </div>
+            </div>
+            <div class="experience_skills">
+              <span class="skill_tag">React</span>
+              <span class="skill_tag">JavaScript</span>
+              <span class="skill_tag">HTML/CSS</span>
+              <span class="skill_tag">UI/UX Design</span>
+              <span class="skill_tag">Responsive Design</span>
+            </div>
+            <div style="display: none;" class="experience_highlights">
+              <h4>Key Services:</h4>
+              <ul class="highlights_list">
+                <li>Custom website development and design</li>
+                <li>E-commerce solutions and integrations</li>
+                <li>Performance optimization and SEO</li>
+                <li>Responsive design for all devices</li>
+                <li>Client consultation and project management</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- About Me section - Now Third -->
+    <div class="about_section reveal-section" id="story">
+      <div class="sub-container">
+        <h2>About me</h2>
+        <div class="about_text reveal-section delay-200">
+          <p>
+            I'm Daksh Titarmare, a developer focused on creating elegant,
+            user-friendly digital experiences. With expertise in modern web
+            technologies, Ai / machine learning and more. I strive to build
+            solutions that make an impact.
+          </p>
+          <p>
+            My journey in technology began with a curiosity for how things work
+            and a deep fascination with AI. Since then, I've been constantly
+            learning and exploring new technologies to push the boundaries of
+            what's possible.
+          </p>
+
+          <!-- Resume Download Section - Compact Version -->
+          <div class="resume-section reveal-section delay-300">
+            <a
+              href="assets/Daksh Titarmare Resume.pdf"
+              class="resume-button"
+              download
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Download Resume
+            </a>
+            <a href="about.html" class="learn-more-button">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 8l4 4-4 4"></path>
+                <path d="M8 12h8"></path>
+              </svg>
+              Learn More About Me
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="about_content">
+        <div class="profile_image_container reveal-section delay-100">
+          <img
+            src="assets/my-image.png"
+            alt="Daksh Titarmare"
+            class="profile_image"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section class="contact_section reveal-section" id="contact">
+      <h2 class="contact_heading">Get In Touch</h2>
+      <div class="contact_container">
+        <div class="contact_info reveal-section delay-200">
+          <p>
+            I'm always interested in hearing about new projects and
+            opportunities. Whether you have a question or just want to say
+            hello, I'll get back to you as soon as possible!
+          </p>
+
+          <div class="contact-button-container reveal-section delay-300">
+            <a href="contact.html" class="primary-contact-button">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                ></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              Contact Me
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="custom-footer reveal-section">
+      <a class="email" href="mailto:tanishbhavsar2007@gmail.com"
+        >tanishbhavsar2007@gmail.com</a
+      >
+      <div class="social-icons">
+        <a href="#"
+          ><img src="assets/Screenshot 2025-04-07 at 1.26.39 AM.png" alt="X"
+        /></a>
+        <a href="#"
+          ><img
+            src="assets/Screenshot 2025-04-07 at 1.27.49 AM.png"
+            alt="Instagram"
+        /></a>
+        <a
+          href="https://github.com/Tanish-Dev"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><img
+            src="https://cdn-icons-png.flaticon.com/512/733/733553.png"
+            alt="GitHub"
+        /></a>
+        <a
+          href="https://www.linkedin.com/in/tanish-bhavsar-a96354286/"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><img
+            src="assets/Screenshot 2025-04-07 at 1.28.20 AM.png"
+            alt="LinkedIn"
+        /></a>
+      </div>
+    </footer>
+
+    <!-- Interactive Watermark/Credits -->
+    <div class="credits-container">
+      <div class="credits-wrapper">
+        <div class="credits-text" id="creditsText"></div>
+        <div class="credits-cursor"></div>
+      </div>
+      <div class="credits-effects">
+        <!-- Removed the particles divs -->
+      </div>
+    </div>
+
+    <!-- Add reference to external JavaScript file -->
+    <script src="main.js"></script>
+  </body>
+</html>
