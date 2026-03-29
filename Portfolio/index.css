@@ -69,7 +69,7 @@ body {
 }
 
 h1 {
-  font-size: 15.5vw;
+  font-size: 12.5vw;
   font-weight: 600;
   letter-spacing: -0.05em;
   margin: 0;
@@ -1437,7 +1437,7 @@ footer {
   }
 
   .screen h1 {
-    font-size: 17vw;
+    font-size: 12vw;
     margin-left: 20px;
   }
 
